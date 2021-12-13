@@ -5,6 +5,7 @@ export const StyledButton = styled.button`
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   width: 65%;
+  margin-top: 1em;
   height: 3rem;
   border: none;
   color: white;

@@ -4,10 +4,9 @@ import {
   InputContainer,
   WelcomeText,
   ButtonContainer,
-  LoginWith,
   HorizontalRule,
-  IconsContainer,
   ForgotPassword,
+  GlobalStyle,
 } from "./MainPage.styled";
 import Input from "../../components/InputComponent";
 import Button from "../../components/ButtonComponent";
@@ -15,6 +14,7 @@ import Button from "../../components/ButtonComponent";
 const MainPage = () => {
   return (
     <MainContainer>
+      <GlobalStyle />
       <WelcomeText>Welcome</WelcomeText>
       <InputContainer>
         <Input type="text" placeholder="Email" />
@@ -23,11 +23,10 @@ const MainPage = () => {
         <Input type="password" placeholder="Password" />
       </InputContainer>
       <ButtonContainer>
+        <Button content="Login" />
         <Button content="Sign Up" />
       </ButtonContainer>
-      <LoginWith>OR LOGIN WITH</LoginWith>
       <HorizontalRule />
-      <IconsContainer></IconsContainer>
       <ForgotPassword>Forgot Password ?</ForgotPassword>
     </MainContainer>
   );

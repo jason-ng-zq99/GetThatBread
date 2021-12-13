@@ -1,58 +1,29 @@
+import { createGlobalStyle } from "styled-components";
 import styled from "styled-components";
+
+export const GlobalStyle = createGlobalStyle`
+body{
+  background: rgba(30, 100, 250, 0.15);
+}
+ 
+`;
 
 export const MainContainer = styled.div`
   display: flex;
   margin: auto;
   align-items: center;
   flex-direction: column;
-  height: 80vh;
-  width: 30vw;
-  background: rgba(30, 100, 250, 0.15);
-  //box-shadow: 0 2px 2px 0 rgba(31, 38, 135, 0.15);
-  backdrop-filter: blur(8.5px);
-  -webkit-backdrop-filter: blur(8.5px);
+  height: 50%;
+  width: 40%;
   border-radius: 10px;
   color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 0.4rem;
-  @media only screen and (max-width: 320px) {
-    width: 80vw;
-    height: 90vh;
-    hr {
-      margin-bottom: 0.3rem;
-    }
-    h4 {
-      font-size: small;
-    }
-  }
-  @media only screen and (min-width: 360px) {
-    width: 80vw;
-    height: 90vh;
-    h4 {
-      font-size: small;
-    }
-  }
-  @media only screen and (min-width: 411px) {
-    width: 80vw;
-    height: 90vh;
-  }
-
-  @media only screen and (min-width: 768px) {
-    width: 80vw;
-    height: 80vh;
-  }
-  @media only screen and (min-width: 1024px) {
-    width: 70vw;
-    height: 50vh;
-  }
-  @media only screen and (min-width: 1280px) {
-    width: 30vw;
-    height: 80vh;
-  }
 `;
 
 export const WelcomeText = styled.h2`
   margin: 3rem 0 2rem 0;
+  color: black;
 `;
 
 export const InputContainer = styled.div`
@@ -69,12 +40,9 @@ export const ButtonContainer = styled.div`
   margin: 1rem 0 2rem 0;
   width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-`;
-
-export const LoginWith = styled.h5`
-  cursor: pointer;
 `;
 
 export const HorizontalRule = styled.hr`
@@ -88,13 +56,7 @@ export const HorizontalRule = styled.hr`
   backdrop-filter: blur(25px);
 `;
 
-export const IconsContainer = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  margin: 2rem 0 3rem 0;
-  width: 80%;
-`;
-
 export const ForgotPassword = styled.h4`
   cursor: pointer;
+  color: black;
 `;
