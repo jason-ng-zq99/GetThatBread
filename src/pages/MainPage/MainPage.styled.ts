@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 export const MainContainer = styled.div`
   display: flex;
+  margin: auto;
   align-items: center;
   flex-direction: column;
   height: 80vh;
   width: 30vw;
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  background: rgba(30, 100, 250, 0.15);
+  //box-shadow: 0 2px 2px 0 rgba(31, 38, 135, 0.15);
   backdrop-filter: blur(8.5px);
   -webkit-backdrop-filter: blur(8.5px);
   border-radius: 10px;
@@ -55,6 +56,7 @@ export const WelcomeText = styled.h2`
 `;
 
 export const InputContainer = styled.div`
+  padding: 1rem 0 0 0;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

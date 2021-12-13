@@ -18,6 +18,8 @@ const MainPage = () => {
       <WelcomeText>Welcome</WelcomeText>
       <InputContainer>
         <Input type="text" placeholder="Email" />
+      </InputContainer>
+      <InputContainer>
         <Input type="password" placeholder="Password" />
       </InputContainer>
       <ButtonContainer>
