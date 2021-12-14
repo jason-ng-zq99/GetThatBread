@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import MainPage from "./pages/MainPage/MainPage";
-import RequestsDisplayPage from "./pages/RequestsDisplayPage/RequestsDisplayPage";
 
 class App extends Component {
   render() {
@@ -9,7 +8,6 @@ class App extends Component {
       <Router>
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/RequestsDisplayPage" element={<RequestsDisplayPage />} />
         </Routes>
       </Router>
     );
