@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   MainContainer,
   InputContainer,
@@ -7,24 +7,30 @@ import {
   HorizontalRule,
   ForgotPassword,
   GlobalStyle,
+  StyledInput,
+  StyledButton,
 } from "./MainPage.styled";
-import Input from "../../components/InputComponent";
-import Button from "../../components/ButtonComponent";
 
 const MainPage = () => {
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+  const [success, setsuccess] = useState(false);
+
+  function CheckLogin(username: string, password: string) {}
+
   return (
     <MainContainer>
       <GlobalStyle />
       <WelcomeText>Welcome</WelcomeText>
       <InputContainer>
-        <Input type="text" placeholder="Email" />
+        <StyledInput type="text" placeholder="Email" />
       </InputContainer>
       <InputContainer>
-        <Input type="password" placeholder="Password" />
+        <StyledInput type="password" placeholder="Password" />
       </InputContainer>
       <ButtonContainer>
-        <Button content="Login" />
-        <Button content="Sign Up" />
+        <StyledButton>Login</StyledButton>
+        <StyledButton>Sign Up</StyledButton>
       </ButtonContainer>
       <HorizontalRule />
       <ForgotPassword>Forgot Password ?</ForgotPassword>
