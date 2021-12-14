@@ -16,20 +16,39 @@ const MainPage = () => {
   const [password, setpassword] = useState("");
   const [success, setsuccess] = useState(false);
 
-  function CheckLogin(username: string, password: string) {}
+  function CheckLogin(username: string, password: string) {
+    if (username === "ayam_brand_o0o" && password === "1234") {
+      setsuccess(true);
+    } else {
+      setsuccess(false);
+    }
+    console.log(success);
+  }
 
   return (
     <MainContainer>
       <GlobalStyle />
       <WelcomeText>Welcome</WelcomeText>
       <InputContainer>
-        <StyledInput type="text" placeholder="Email" />
+        <StyledInput
+          type="text"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setemail(e.target.value)}
+        />
       </InputContainer>
       <InputContainer>
-        <StyledInput type="password" placeholder="Password" />
+        <StyledInput
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setpassword(e.target.value)}
+        />
       </InputContainer>
       <ButtonContainer>
-        <StyledButton>Login</StyledButton>
+        <StyledButton onClick={() => CheckLogin(email, password)}>
+          Login
+        </StyledButton>
         <StyledButton>Sign Up</StyledButton>
       </ButtonContainer>
       <HorizontalRule />
