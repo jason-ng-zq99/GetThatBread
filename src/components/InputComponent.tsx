@@ -1,4 +1,3 @@
-import react from "React";
 import { StyledInput } from "./styles/InputComponent.styled";
 
 type Props = {

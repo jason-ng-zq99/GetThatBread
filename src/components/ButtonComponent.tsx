@@ -1,4 +1,3 @@
-import react from "React";
 import { StyledButton } from "./styles/ButtonComponent.styled";
 
 type Props = {
