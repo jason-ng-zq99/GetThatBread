@@ -125,7 +125,7 @@ const MakeBorrowRequestPage = () => {
     <>
     <MainContainer>
       <GlobalStyle />
-      <WelcomeText>Welcome</WelcomeText>
+      <WelcomeText>Welcome, Ayam_brand_o0o</WelcomeText>
       <InputContainer>
         <StyledInput
           type="text"
