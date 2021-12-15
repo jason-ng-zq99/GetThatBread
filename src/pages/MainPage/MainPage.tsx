@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import {
   MainContainer,
   InputContainer,
+  ErrorContainer,
   WelcomeText,
   ButtonContainer,
   HorizontalRule,
@@ -16,15 +17,24 @@ const MainPage = () => {
   let navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [wrong, setWrong] = useState(false);
 
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (password === "1234" && email === "ayam_brand_o0o") {
       navigate("/MakeBorrowRequestPage");
+    } else {
+      setWrong(true);
+      setEmail("");
+      setPassword("");
     }
   };
 
-  const Redirect = () => {};
+  const errorMessage = () => {
+    if (wrong) {
+      return <ErrorContainer>Error Wrong Password!</ErrorContainer>;
+    }
+  };
 
   return (
     <MainContainer>
@@ -46,6 +56,7 @@ const MainPage = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
       </InputContainer>
+      {errorMessage()}
       <ButtonContainer>
         <StyledButton onClick={handleSubmit}>Login</StyledButton>
         <StyledButton>Sign Up</StyledButton>
