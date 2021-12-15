@@ -106,7 +106,7 @@ const MakeBorrowRequestPage = () => {
       key: keyNumber,
       requestNumber: requestNumber,
       requester: 'ayam_brand_o0o',
-      quantity: itemQuantity,
+      quantity: itemQuantity <= 0 ? 1 : itemQuantity,
       itemDescription: itemName,
     }
     const updatedList = [...borrowRequests, newRequest]
