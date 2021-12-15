@@ -80,7 +80,7 @@ const MakeBorrowRequestPage = () => {
         return (
           <Space size="middle">
             <Button danger onClick={() => handleDeleteItem(itemAffected)}>
-              Delete
+              Lend
             </Button>
           </Space>
         )
