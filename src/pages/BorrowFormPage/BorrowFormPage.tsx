@@ -1,5 +1,6 @@
 import Search from "antd/lib/transfer/search";
-import React, { useState } from "react";
+import React, { ChangeEvent, EventHandler, FunctionComponent, useState } from "react";
+import { FunctionBody } from "typescript";
 
 import {
   MainContainer,
@@ -17,42 +18,41 @@ import {
   SmallText
 } from "./BorrowFormPage.styled";
 
-const [searchQuery, setSearchQuery] = useState("");
-const [filteredName, setFilteredName] = useState("");
+
+const BorrowPage = () => {
+    const [searchQuery, setSearchQuery] = useState("");
+    const [search, setSearch]: [string, (search: string) => void] = React.useState("");
 
 const objects = [
     'banana',
     'broomstick',
     'broken cup'
-]
+];
 
-const displayObject = objects.map((object) =>{
-    return(
-        <li>{object}</li>
-    )
-}
-)
+const handleChange = (e: { target: { value: string; }; }) => {
+    setSearch(e.target.value);
+  };
 
-const BorrowPage = () => {
-  const [success, setsuccess] = useState(false);
-/*
-  function handleSearch(newSearchQuery){
-      setSearchQuery(newSearchQuery);
-      objects.map((object) => {
-          if (object.includes(searchQuery)){
-              setFilteredName(object)
-          }
-      })
-  }
-*/
   return (
     <MainContainer>
       <GlobalStyle />
       <WelcomeText>Borrow Page</WelcomeText>
-      <InputContainer>
-        <StyledInput type="text" placeholder="Search" />
-      </InputContainer>
-        <ImageContainer src={`${process.env.PUBLIC_URL}/loan_item_1.jpg`}/>
+      <StyledInput type="text" placeholder= "Search" onChange={(e) => setSearch(e.target.value)}/>
+      <ul>
+        {objects.map((object)=>{
+            if(search!=""&&object.toLowerCase().includes(search.toLowerCase())){
+                return (
+                    <li>
+                        <h5>{object}</h5>
+                    </li>
+                );
+            }
+            return null;
+            }
+        )
+        }
+      </ul>
+      <ImageContainer src={`${process.env.PUBLIC_URL}/loan_item_1.jpg`}/>
       <DetailsContainer>
         <Text>
             Owner Name: AyamBrando0o

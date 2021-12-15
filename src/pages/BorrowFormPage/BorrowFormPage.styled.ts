@@ -130,3 +130,12 @@ export const SmallText = styled.h5`
   font-family: Helvetica;
   letter-spacing: 0rem;
 `
+
+styled.ul`
+  display: flex;
+  color: black;
+`
+
+styled.li`
+  color: black;
+`
