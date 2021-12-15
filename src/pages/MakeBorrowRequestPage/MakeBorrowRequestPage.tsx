@@ -23,8 +23,8 @@ const MakeBorrowRequestPage = () => {
     quantity: number
   }
 
-  let keyNumber = 3
-  let requestNumber = 3
+  const [keyNumber, setKeyNumber] = useState(4)
+  const [requestNumber, setRequestNumber] = useState(4)
 
   const [newItemDescription, setItemDescription] = useState('');
   const [newQuantity, setItemQuantity] = useState(1);
@@ -102,8 +102,6 @@ const MakeBorrowRequestPage = () => {
   }
 
   const addRequest = (itemName: string, itemQuantity: number) => {
-    keyNumber++
-    requestNumber++
     const newRequest: ItemProps = {
       key: keyNumber,
       requestNumber: requestNumber,
@@ -113,6 +111,8 @@ const MakeBorrowRequestPage = () => {
     }
     const updatedList = [...borrowRequests, newRequest]
     setBorrowRequests(updatedList)
+    setKeyNumber(keyNumber + 1)
+    setRequestNumber(requestNumber + 1)
   }
 
   const handleSubmit = () => {
