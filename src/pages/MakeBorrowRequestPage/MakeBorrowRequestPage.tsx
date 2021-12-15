@@ -1,4 +1,5 @@
 import React, { ChangeEvent, useState } from 'react'
+import 'antd/dist/antd.css'
 import { Table as AntdTable } from 'antd'
 import {
   MainContainer,
