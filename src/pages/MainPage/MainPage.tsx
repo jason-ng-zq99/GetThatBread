@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   MainContainer,
   InputContainer,
@@ -9,21 +10,21 @@ import {
   GlobalStyle,
   StyledInput,
   StyledButton,
-} from "./MainPage.styled";
+} from "./styles/MainPage.styled";
 
 const MainPage = () => {
-  const [email, setemail] = useState("");
-  const [password, setpassword] = useState("");
-  const [success, setsuccess] = useState(false);
+  let navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  function CheckLogin(username: string, password: string) {
-    if (username === "ayam_brand_o0o" && password === "1234") {
-      setsuccess(true);
-    } else {
-      setsuccess(false);
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (password === "1234" && email === "ayam_brand_o0o") {
+      navigate("/MakeBorrowRequestPage");
     }
-    console.log(success);
-  }
+  };
+
+  const Redirect = () => {};
 
   return (
     <MainContainer>
@@ -34,7 +35,7 @@ const MainPage = () => {
           type="text"
           placeholder="Email"
           value={email}
-          onChange={(e) => setemail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
         />
       </InputContainer>
       <InputContainer>
@@ -42,13 +43,11 @@ const MainPage = () => {
           type="password"
           placeholder="Password"
           value={password}
-          onChange={(e) => setpassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
         />
       </InputContainer>
       <ButtonContainer>
-        <StyledButton onClick={() => CheckLogin(email, password)}>
-          Login
-        </StyledButton>
+        <StyledButton onClick={handleSubmit}>Login</StyledButton>
         <StyledButton>Sign Up</StyledButton>
       </ButtonContainer>
       <HorizontalRule />
