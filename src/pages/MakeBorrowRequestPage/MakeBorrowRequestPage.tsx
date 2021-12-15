@@ -1,31 +1,109 @@
-import React, { useState } from 'react'
+import React, { ChangeEvent, useState } from 'react'
+import { Table as AntdTable } from 'antd'
 import {
   MainContainer,
   InputContainer,
   WelcomeText,
   ButtonContainer,
   HorizontalRule,
-  ForgotPassword,
   GlobalStyle,
   StyledInput,
   StyledButton,
+  RequestTableContainer,
 } from "./styles/MakeBorrowRequestPage.styled";
 
-const MakeBorrowRequestPage = () => {
-  const [newItemDescription, setItemDescription] = useState("");
-  const [newQuantity, setItemQuantity] = useState(1);
 
-  const handleNewItemDescription = (newItemDescription: string) => {
-    setItemDescription(newItemDescription)
+const MakeBorrowRequestPage = () => {
+  interface ItemProps {
+    key: number
+    requestNumber: number
+    requester: string
+    itemDescription: string
+    quantity: number
+  }
+
+  let keyNumber = 3
+  let requestNumber = 3
+
+  const [newItemDescription, setItemDescription] = useState('');
+  const [newQuantity, setItemQuantity] = useState(1);
+  const [borrowRequests, setBorrowRequests] = useState<ItemProps[]>([
+    {
+      key: 1,
+      requestNumber: 1,
+      requester: 'ikan_brand',
+      itemDescription: 'potato',
+      quantity: 365,
+    },
+    {
+      key: 2,
+      requestNumber: 2,
+      requester: 'ayam_brand_o0o',
+      itemDescription: 'tomato',
+      quantity: 20,
+    },
+    {
+      key: 3,
+      requestNumber: 3,
+      requester: 'ayam_brand_o0o',
+      itemDescription: 'oregano',
+      quantity: 60,
+    }
+  ])
+
+  const columns = [
+    {
+      title: 'Request Number',
+      dataIndex: 'requestNumber',
+      key: 'requestNumber',
+    },
+    {
+      title: 'Requester',
+      dataIndex: 'requester',
+      key: 'requester',
+    },
+    {
+      title: 'Item Description',
+      dataIndex: 'itemDescription',
+      key: 'itemDescription',
+    },
+    {
+      title: 'Quantity',
+      dataIndex: 'quantity',
+      key: 'quantity',
+    }
+  ];
+
+  const handleNewItemDescription = (e: ChangeEvent<HTMLInputElement>) => {
+    setItemDescription(e.target.value)
   }
 
   const handleNewItemQuantity = (newItemQuantity: number) => {
     setItemQuantity(newItemQuantity)
   }
 
-  // handleSubmit method to handle new items in the list 
+  const addRequest = (itemName: string, itemQuantity: number) => {
+    keyNumber++
+    requestNumber++
+    const newRequest: ItemProps = {
+      key: keyNumber,
+      requester: 'ayam_brand_o0o',
+      requestNumber: requestNumber,
+      quantity: itemQuantity,
+      itemDescription: itemName,
+    }
+    const updatedList = [...borrowRequests, newRequest]
+    setBorrowRequests(updatedList)
+  }
+
+  const handleSubmit = () => {
+    addRequest(newItemDescription, newQuantity)
+    setItemDescription('')
+    setItemQuantity(0)
+  }
 
   return (
+    <>
     <MainContainer>
       <GlobalStyle />
       <WelcomeText>Welcome</WelcomeText>
@@ -34,7 +112,7 @@ const MakeBorrowRequestPage = () => {
           type="text"
           placeholder="Item Description"
           value={newItemDescription}
-          onChange={(e) => handleNewItemDescription(e.target.value)}
+          onChange={(e) => handleNewItemDescription(e)}
         />
       </InputContainer>
       <InputContainer>
@@ -46,12 +124,16 @@ const MakeBorrowRequestPage = () => {
         />
       </InputContainer>
       <ButtonContainer>
-        {/* <StyledButton onClick={() => CheckLogin(email, password)}> */}
-        <StyledButton>
+        <StyledButton onClick={() => handleSubmit()}>
           Create Request
         </StyledButton>
       </ButtonContainer>
+      <HorizontalRule />
     </MainContainer>
+    <RequestTableContainer>
+      <AntdTable columns={columns} dataSource={borrowRequests} />
+    </RequestTableContainer>
+    </>
   );
 };
 
