@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useState } from 'react'
 import 'antd/dist/antd.css'
-import { Table as AntdTable } from 'antd'
+import { Table, Space, Button } from 'antd'
 import {
   MainContainer,
   InputContainer,
@@ -72,8 +72,26 @@ const MakeBorrowRequestPage = () => {
       title: 'Quantity',
       dataIndex: 'quantity',
       key: 'quantity',
-    }
+    },
+    {
+      title: 'Action',
+      key: 'action',
+      render: function actions(itemAffected: ItemProps) {
+        return (
+          <Space size="middle">
+            <Button danger onClick={() => handleDeleteItem(itemAffected)}>
+              Delete
+            </Button>
+          </Space>
+        )
+      },
+    },
   ];
+
+  const handleDeleteItem = (requestToDelete: ItemProps) => {
+    const updatedList = borrowRequests.filter((borrowRequest) => borrowRequest.requestNumber !== requestToDelete.requestNumber)
+    setBorrowRequests(updatedList)
+  }
 
   const handleNewItemDescription = (e: ChangeEvent<HTMLInputElement>) => {
     setItemDescription(e.target.value)
@@ -88,8 +106,8 @@ const MakeBorrowRequestPage = () => {
     requestNumber++
     const newRequest: ItemProps = {
       key: keyNumber,
-      requester: 'ayam_brand_o0o',
       requestNumber: requestNumber,
+      requester: 'ayam_brand_o0o',
       quantity: itemQuantity,
       itemDescription: itemName,
     }
@@ -132,7 +150,7 @@ const MakeBorrowRequestPage = () => {
       <HorizontalRule />
     </MainContainer>
     <RequestTableContainer>
-      <AntdTable columns={columns} dataSource={borrowRequests} />
+      <Table columns={columns} dataSource={borrowRequests} />
     </RequestTableContainer>
     </>
   );
