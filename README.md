@@ -25,4 +25,4 @@ Using a React app.
 ![image](https://user-images.githubusercontent.com/88677292/146298289-b481c791-b10a-45ee-85aa-68c6addd139c.png)
  
  ## Try it Out!
- {get-that-bread.herokuapp.com}
+[App](get-that-bread.herokuapp.com)
