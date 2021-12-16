@@ -3,7 +3,6 @@
 2. Login
 3. Make Request or browse through existing requests and choose someone to lend your items to
 
-More About the App
 ## Inspiration
 There were times when we came all the way to hall only to realise something was left back at home. 
 Chances are, someone else in hall has it too and would be happy to lend you that item, but it is tedious to ask around in various chats to check who has it. Why not have a centralised platform to accomplish this task? 
