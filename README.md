@@ -1,5 +1,5 @@
 ## Quick Start
-1. Sign Up for an account by typing in you username and password
+1. Sign Up for an account by typing in your username and password
 2. Login
 3. Make Request or browse through existing requests and choose someone to lend your items to
 
@@ -17,3 +17,12 @@ Using a React app.
 ## What's next for GetThatBread
 * Improvements to user experience 
 * Expansion to loan management system for CCA equipments
+
+## Sign Up Page
+![image](https://user-images.githubusercontent.com/88677292/146298241-675db16d-f8d9-4aca-9e19-ef6adac95a9d.png)
+
+## Main Page
+![image](https://user-images.githubusercontent.com/88677292/146298289-b481c791-b10a-45ee-85aa-68c6addd139c.png)
+ 
+ ## Try it Out!
+ get-that-bread.herokuapp.com
