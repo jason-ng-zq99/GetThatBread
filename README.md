@@ -1,4 +1,4 @@
-##Quick Start
+## Quick Start
 1. Sign Up for an account by typing in you username and password
 2. Login
 3. Make Request or browse through existing requests and choose someone to lend your items to
